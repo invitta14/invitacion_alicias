@@ -1,3 +1,4 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -5,10 +6,33 @@
 }
 
 body, html {
-  height: 100%;
+  height: auto; /* Antes estaba en 100% y eso puede cortar el scroll */
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
 }
+.decoracion-img {
+  width: 80px; /* Ajusta según el diseño */
+  margin: 0 auto 15px;
+  display: block;
+  animation: flotar 3s ease-in-out infinite;
+  opacity: 0.95;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.decoracion-img2 {
+  width: 30%; /* Ajusta según el diseño */
+  margin: 0 auto 15px;
+  display: block;
+
+  opacity: 0.95;
+}
+
+
+
 
 #fondo-video {
   position: fixed;
@@ -18,63 +42,74 @@ body, html {
   min-height: 100%;
   object-fit: cover;
   z-index: -1;
-  opacity: 0.7; /* Puedes ajustar la opacidad */
+  opacity: 0.7; /* Ajusta la opacidad a tu gusto */
 }
 
 .invitacion {
   display: flex;
+  flex-direction: column; /* ← Esto hace que se apilen verticalmente */
   align-items: center;
-  justify-content: center;
   padding: 20px;
   min-height: 100vh;
+  width: 100%;
 }
+
 
 .contenido {
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 40px 20px;
+  background-color: rgba(255, 255, 255, 0.793);
+  padding: 40px 30px;
   border-radius: 15px;
+  max-width: 350px;
+  width: 100%;
+  min-height: 60vh;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   position: relative;
-  max-width: 400px;
-  width: 100%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
 
-.numero-fondo {
-  font-size: 90px;
-  font-weight: bold;
-  color: #eecfd8;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
-  opacity: 0.3;
-}
-
-.texto-arriba {
-  font-family: 'Great Vibes', cursive;
-  font-size: 26px;
-  color: #91314f;
-  position: relative;
-  z-index: 1;
-  margin-top: 40px;
-  margin-bottom: 30px;
-}
-
-.frase-central {
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 20px;
+  /* Borde decorativo con imagen */
+  border: 20px solid transparent;
+  border-image: url('https://t4.ftcdn.net/jpg/01/10/94/49/360_F_110944977_9CJLfJb4f9cboO6Egot5ZqZqF4oWnpsn.jpg') 30 round; /* Ajusta el número según tu imagen */
 }
 
 .nombre {
-  font-family: 'Great Vibes', cursive;
-  font-size: 36px;
-  color: #91314f;
-  margin: 0 0 20px;
+  font-family: cursive;
+  font-size: 60px;
+  font-style: italic; /* para cursiva */
+  color: #ff80ab; /* color sólido rosa */
+  margin-bottom: 10px;
+  /* si quieres, quita la animación y el fondo gradiente */
+  background: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  animation: none;
 }
+
+
+@keyframes brillo {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.texto-arriba {
+  font-family: 'Dancing Script', cursive;
+  font-size: 26px;
+  color: #91314f;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+}
+
+
 
 .detalles {
   font-size: 13px;
@@ -88,4 +123,66 @@ body, html {
   font-family: 'Great Vibes', cursive;
   font-size: 18px;
   color: #91314f;
+}
+
+.contenido-secundario {
+  background-color: rgba(255, 255, 255, 0.829);
+  padding: 30px 20px;
+  border-radius: 15px;
+  max-width: 350px;
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+    /* Borde decorativo con imagen */
+  border: 20px solid transparent;
+  border-image: url('https://t4.ftcdn.net/jpg/01/10/94/49/360_F_110944977_9CJLfJb4f9cboO6Egot5ZqZqF4oWnpsn.jpg') 30 round; /* Ajusta el número según tu imagen */
+}
+
+.contenido-secundario h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #91314f;
+  margin-bottom: 15px;
+}
+
+.mensaje-especial {
+  font-size: 20px;
+  color: #444;
+  margin: 15px 0 25px;
+  line-height: 1.6;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+.icono-ubicacion {
+  display: block;
+  margin: 0 auto 10px; /* Centra y da margen inferior */
+  width: 40px;          /* Tamaño recomendado, ajusta a gusto */
+  height: auto;
+  filter: drop-shadow(0 0 3px #91314f); /* Opcional: sombra para destacar */
+}
+
+.btn-ubicacion {
+  display: inline-block;
+  margin: 10px auto 20px;
+  padding: 10px 25px;
+  background: linear-gradient(90deg, #ff80ab, #ffc1e3);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 4px 8px rgba(255, 128, 171, 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-ubicacion:hover {
+  background: linear-gradient(90deg, #ffc1e3, #ff80ab);
+  box-shadow: 0 6px 12px rgba(255, 193, 227, 0.8);
 }
